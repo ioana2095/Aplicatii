@@ -1,0 +1,57 @@
+﻿@model IEnumerable<WebApplication.Models.VizualizareTop>
+
+@{
+    ViewBag.Title = "VizualizareTop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Vizualizare Top</h2>
+ <style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #eee;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #fff;
+    }
+
+    table th {
+        background-color: black;
+        color: white;
+    }
+</style>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titlu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nr_carti)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titlu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nr_carti)
+        </td>
+    </tr>
+}
+
+</table>

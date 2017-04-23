@@ -1,0 +1,85 @@
+﻿@model IEnumerable<WebApplication.Models.VizualizareAnunturi>
+
+@{
+    ViewBag.Title = "VizualizareAnunturi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Vizualizare Anunturi</h2>
+
+<tr>
+    <th>
+        @Html.DisplayNameFor(model => model.Data)
+    </th>
+</tr>
+<tr>
+    @foreach (var item in Model.Take(1))
+    {
+        <tr>
+            <span class="test"  style ="border-bottom: 4px solid #CC4040; font:large" >
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+                </td>
+            </span>
+      </tr>
+    }
+</tr>
+
+<tr>
+
+
+</tr>
+<style>
+     table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+       background-color: #eee;
+    }
+    tr:nth-child(odd) {
+        background-color:#fff;
+    }
+    table th {
+    background-color: black;
+    color: white;
+    }
+</style>
+<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titlu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gen)
+            </th>
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                @if (item.Titlu != null && item.Nume!=null && item.Gen!=null) { 
+                <td>
+                    @Html.DisplayFor(modelItem => item.Titlu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nume)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gen)
+                </td>
+                }
+            </tr>
+            }
+    </tr>
+</table>

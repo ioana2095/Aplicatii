@@ -1,0 +1,61 @@
+﻿@model IEnumerable<WebApplication.Models.VizualizareGen>
+
+@{
+    ViewBag.Title = "VizualizareGen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Vizualizare Gen</h2>
+
+ <style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #eee;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #fff;
+    }
+
+    table th {
+        background-color: black;
+        color: white;
+    }
+</style>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Gen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gen)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_Gen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gen)
+        </td>
+        <td>
+            @Html.ActionLink("Vizualizare", "VizualizareCartiGen", "Vizualizare", new { Gen = item.Gen }, null)
+        </td>
+</tr>
+}
+
+</table>

@@ -1,0 +1,136 @@
+﻿@model WebApplication.Models.VizualizareCont
+
+@{
+    ViewBag.Title = "AdminPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    div.container {
+        width: 70%;
+        border: 0px solid gray;
+    }
+
+    header, footer {
+        padding: 1em;
+        color: white;
+        background-color: black;
+        clear: left;
+        text-align: center;
+    }
+
+    nav {
+        float: left;
+        max-width: 160px;
+        margin: 0;
+        padding: 1em;
+    }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+            nav ul a {
+                text-decoration: none;
+            }
+
+    article {
+        margin-left: 170px;
+        border-left: 1px solid gray;
+        padding: 1em;
+        overflow: hidden;
+    }
+</style>
+<header>
+    <h2>Admin Page</h2>
+    </header>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Username)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Username)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nume)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nume)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Prenume)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Prenume)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Varsta)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Varsta)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ID_Abonament)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ID_Abonament)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Admin)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Admin)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Data_Creare)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Data_Creare)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Data_Expirare)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Data_Expirare)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Data)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Data)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            <div class="btn-group" role="group" aria-label="...">
+                @Html.ActionLink("Autori", "VizualizareAutori", "Vizualizare") |
+                @Html.ActionLink("Carti", "VizualizareCarti", "Vizualizare", new { Admin = Model.Admin }, null) |
+                @Html.ActionLink("Exemplare", "VizualizareExemplare", "Vizualizare") |
+                @Html.ActionLink("Gen", "VizualizareGen", "Vizualizare") |
+                @Html.ActionLink("Top", "VizualizareTop", "Vizualizare") |
+                @Html.ActionLink("Anunturi", "VizualizareAnunturi", "Vizualizare", new { username = Model.Username }, null) |
+                @Html.ActionLink("Persoane", "VizualizarePersoane", "Vizualizare", new { Admin = Model.Admin }, null) |
+                @Html.ActionLink("Home", "Index", "Home")
+
+            </div>
+        </p>

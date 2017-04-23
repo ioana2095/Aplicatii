@@ -1,0 +1,101 @@
+﻿@model IEnumerable<WebApplication.Models.VizualizareCarti>
+
+@{
+    ViewBag.Title = "Vizualizare Carti";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Vizualizare Carti</h2>
+
+<p>
+    @foreach (var item in Model.Take(1))
+    {
+        <tr>
+            @if (item.Conditie)
+            {
+                @Html.ActionLink("Create New", "AddCarte", "Editare", new { CarteId = item.ID_Carte }, null)
+            }
+            else
+            {
+                @Html.ActionLink("Create New", "AddCarte", "Editare", new { CarteId = item.ID_Carte }, new { @style = "display:none" })
+            }
+        </tr>
+    }
+        
+</p>
+ <style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #eee;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #fff;
+    }
+
+    table th {
+        background-color: black;
+        color: white;
+    }
+</style>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titlu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Numar)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titlu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nume)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gen)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Numar)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "DetailsCarte", "Editare", new { CarteId = item.ID_Carte },null) |
+            @if (item.Conditie)
+            {
+                @Html.ActionLink("Delete", "DeleteCarte", "Editare", new { CarteId = item.ID_Carte }, null) 
+            }
+            else
+            {
+                @Html.ActionLink("Delete", "DeleteCarte", "Editare", new { CarteId = item.ID_Carte }, new { @style = "display:none" }) 
+            }
+           
+            @Html.ActionLink("Inchiriere", "Inchiriere", "Editare", new { CarteId = item.ID_Carte}, null)|
+            @Html.ActionLink("Pozitia", "VizualizarePozitie", "Vizualizare", new { CarteId = item.ID_Carte }, null)|
+            @Html.ActionLink("Preinregistrare", "Preinregistrare", "Editare", new { CarteId = item.ID_Carte , Titlu =item.Titlu}, null)
+        </td>
+    </tr>
+}
+
+</table>

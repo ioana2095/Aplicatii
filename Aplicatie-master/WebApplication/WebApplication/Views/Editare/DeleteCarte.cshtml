@@ -1,0 +1,115 @@
+﻿@model WebApplication.Models.VizualizareCarti
+
+@{
+    ViewBag.Title = "DeleteCarte";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<head>
+    <style>
+        div.container {
+            width: 100%;
+            border: 0px solid gray;
+        }
+
+        header, footer {
+            padding: 1em;
+            color: white;
+            background-color: black;
+            clear: left;
+            text-align: center;
+        }
+
+        nav {
+            float: left;
+            max-width: 160px;
+            margin: 0;
+            padding: 1em;
+        }
+
+            nav ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+                nav ul a {
+                    text-decoration: none;
+                }
+
+        article {
+            margin-left: 170px;
+            border-left: 1px solid gray;
+            padding: 1em;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<header>
+    <h2>Delete Carte</h2>
+    </header>
+
+        <h3>Are you sure you want to delete this?</h3>
+        <div>
+            <h4>VizualizareCarti</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.ID_Carte)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ID_Carte)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Titlu)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Titlu)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ID_Autor)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ID_Autor)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ID_Persoana)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ID_Persoana)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ID_Gen)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ID_Gen)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nr_carti)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nr_carti)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                </div>
+            }
+        </div>
